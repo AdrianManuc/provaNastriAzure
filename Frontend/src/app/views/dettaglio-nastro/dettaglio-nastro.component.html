@@ -1,0 +1,17 @@
+<h1>Dettaglio nastro con ID {{id}}</h1>
+<p-table [value]="lista">
+    <ng-template pTemplate="header">
+        <tr>
+            <th *ngFor="let col of cols">
+                {{ col.header }}
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-nastri>
+        <tr>
+            <td *ngFor="let col of cols">
+                {{ nastri[col.field] }}
+            </td>
+        </tr>
+    </ng-template>
+</p-table>

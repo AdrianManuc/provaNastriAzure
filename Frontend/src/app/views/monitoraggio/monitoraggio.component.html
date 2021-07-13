@@ -1,0 +1,48 @@
+<h1>Monitoraggio velocità</h1>
+<p-table [value]="listaV">
+    <ng-template pTemplate="header">
+        <tr>
+            <th *ngFor="let col of colsVelocita">
+                {{ col.header }}
+            </th>
+            <th>
+                Opzioni
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-velocita>
+        <tr>
+            <td *ngFor="let col of colsVelocita" [ngStyle]="{'color': (velocita[col.field] > 60) ? 'red' : ''}">
+                {{ velocita[col.field] }}
+            </td>
+            <td>
+                <button type="button" class="btn btn-secondary" (click)="visualizza(velocita.nastroId)">Visualizza</button>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
+
+<h1>Monitoraggio consumi</h1>
+<p-table [value]="listaC">
+    <ng-template pTemplate="header">
+        <tr>
+            <th *ngFor="let col of colsConsumi">
+                {{ col.header }}
+            </th>
+            <th>
+                Opzioni
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-consumi>
+        <tr>
+            <td *ngFor="let col of colsConsumi" [ngStyle]="{'color': (consumi[col.field] > 60) ? 'red' : ''}">
+                {{ consumi[col.field] }}
+            </td>
+            <td>
+                <button type="button" class="btn btn-secondary" (click)="visualizza(consumi.nastroId)">Visualizza</button>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
+

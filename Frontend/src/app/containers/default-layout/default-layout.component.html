@@ -1,0 +1,26 @@
+<app-header [navbarBrandRouterLink]="['/dashboard']" [fixed]="true"
+  [navbarBrandFull]="{src: 'assets/img/logo.png', width: 30, height: 25, alt: 'CoreUI Logo'}"
+  [navbarBrandMinimized]="{src: 'assets/img/logo.png', width: 30, height: 30, alt: 'CoreUI Logo'}"
+  [sidebarToggler]="'lg'" [asideMenuToggler]="false">
+  <ul class="nav navbar-nav ml-auto">
+  </ul>
+</app-header>
+<div class="app-body">
+  <app-sidebar #appSidebar [fixed]="true" [display]="'lg'" [minimized]="sidebarMinimized"
+    (minimizedChange)="toggleMinimize($event)">
+    <app-sidebar-nav [navItems]="navItems" [perfectScrollbar] [disabled]="appSidebar.minimized"></app-sidebar-nav>
+    <app-sidebar-minimizer></app-sidebar-minimizer>
+  </app-sidebar>
+  <!-- Main content -->
+  <main class="main">
+    <cui-breadcrumb>
+    </cui-breadcrumb>
+    <div class="container-fluid">
+      <router-outlet></router-outlet>
+    </div><!-- /.container-fluid -->
+  </main>
+
+</div>
+<app-footer>
+  <span class="ml-auto">Powered by <a href="https://coreui.io/angular">CoreUI for Angular</a></span>
+</app-footer>
